@@ -1,24 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Word Guess Game</title>
+        <title>Love Live Song Game</title>
         <link rel="stylesheet" href="assets/css/reset.css">
         <link rel="stylesheet" href="assets/css/style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
 
-    <body>
-        <div>
-            <h1>Vocaloid Song Title Hangman</h1>
-            <h1>Wins: <div id="display-wins">0</div></h1>
-            <h1>Losses: <div id="display-losses">0</div></h1>
-            <h1>Current word: </h1>
-            <h1 id="current-solution"></h1> 
-            <h1 id="current-display">Press Space to begin</h1>
-            <h1>Guesses remaining: <div id="guesses-remaining">5</div></h1>
-            <h1>Letters guessed:</h1>
-            <h1 id="letters-guessed"></h1>
+    <body class="mus" id="toggler">
+        <div class = "wrapper">
+            <header>
+                <h1>Love Live Song Hangman</h1><hr>
+                <h2 id="display-edition">μ's edition!</h2>
+                <h2 id="switch-edition">Click here to play Aquor's edition</h2>
+            </header>
+            <div class="left-container">
+                <h1 class="stylish">Score</h1>
+                <h1 class="wins" id="display-wins">Wins: 0</h1>
+                <h1 class="losses" id="display-losses">Losses: 0</h1>
+            </div>
+            <div class="right-container">
+                <h1 class="stylish" id="current-heading">Current song title: </h1>
+                <h1 id="current-solution">Press Space to begin</h1> 
+                <h1 id="guesses-remaining">Guesses remaining: 5</h1>
+                <h1>Letters guessed:</h1>
+                <h1 id="letters-guessed"></h1>
+                <h1 id="current-display"></h1>
+            </div>
+            <div class="volume-controls">
+                <h2 class="sound">Sound Controls:</h2>
+                <h2 id="mute">▶❚❚</h2>
+                <h2 id="sounddown">-</h2>
+                <h2 id="soundup">+</h2>
+            </div>
         </div>
 
+        <audio id="mus0">
+            <source src="assets/music/mus/01. Bokura no LIVE Kimi to no LIFE.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus1">
+            <source src="assets/music/mus/01. Eien Friends.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus2">
+            <source src="assets/music/mus/01. Music S.T.A.R.T!!.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus3">
+            <source src="assets/music/mus/02. LOVELESS WORLD.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus4">
+            <source src="assets/music/mus/02. Nightingale Love Song.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus5">
+                <source src="assets/music/mus/02. Yuujou no Change.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus6">
+                <source src="assets/music/mus/03. Aki no Anata no Sora Tooku.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus7">
+                <source src="assets/music/mus/03. Snow halation.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus8">
+                <source src="assets/music/mus/03. Takaramonozu.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus9">
+                <source src="assets/music/mus/04. baby maybe Koi no Button.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus10">
+                <source src="assets/music/mus/04. Futari Happiness.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus11">
+                <source src="assets/music/mus/04. Paradise Live.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus12">
+                <source src="assets/music/mus/05. Fuyu ga Kureta Yokan.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus13">
+                <source src="assets/music/mus/05. Love marginal.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus14">
+                <source src="assets/music/mus/05. Sore wa Bokutachi no Kiseki.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus15">
+                <source src="assets/music/mus/06. Datte Datte Aa Mujou.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus16">
+                <source src="assets/music/mus/06. sweet&sweet holiday.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus17">
+                <source src="assets/music/mus/06. Trouble Busters.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus18">
+                <source src="assets/music/mus/07. Bokura wa Ima no Naka de (LittleMore-Rock Mix).mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus19">
+                <source src="assets/music/mus/07. Diamond Princess no Yuutsu.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus20">
+                <source src="assets/music/mus/07. Donna Toki mo Zutto.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus21">
+                <source src="assets/music/mus/08. COLORFUL VOICE.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus22">
+                <source src="assets/music/mus/08. Love Novel.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus23">
+                <source src="assets/music/mus/08. No brand girls (GRP-Explosion Mix).mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus24">
+                <source src="assets/music/mus/09. Shiranai Love＊Oshiete Love.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus25">
+                <source src="assets/music/mus/09. START：DASH!! (Bitter-Sweet Mix).mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus26">
+                <source src="assets/music/mus/09. Yume no Tobira.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus27">
+                <source src="assets/music/mus/10. A.no.ne.ga.nbare!.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus28">
+                <source src="assets/music/mus/10. SENTIMENTAL StepS.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus29">
+                <source src="assets/music/mus/10. Wonderful Rush (Hevey-Rush Mix).mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus30">
+                <source src="assets/music/mus/11. Love wing bell.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus31">
+                <source src="assets/music/mus/11. Natsuiro egao de 1, 2, Jump!.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus32">
+                <source src="assets/music/mus/12. Dancing stars on me!.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus33">
+                <source src="assets/music/mus/12. Mermaid festa vol.1.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus34">
+                <source src="assets/music/mus/12. Pure girls project (Super-Mondo Mix).mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus35">
+                <source src="assets/music/mus/13. Cutie Panther (Metal-Panther Mix).mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus36">
+                <source src="assets/music/mus/13. KiRa-KiRa Sensation!.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus37">
+                <source src="assets/music/mus/13. Mogyutto `LOVE` de Sekkin Chuu!.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus38">
+                <source src="assets/music/mus/14. Aishiteru Banzai!.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus39">
+                <source src="assets/music/mus/14. Binetsu Kara Mystery (TeKe-TeKe ELEKI Mix).mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus40">
+                <source src="assets/music/mus/14. Happy maker!.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus41">
+                <source src="assets/music/mus/15. Shangri-La Shower.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="mus42">
+                <source src="assets/music/mus/16. Ruteshi Kisuki Shiteru.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="aquors0">
+            <source src="assets/music/Aquors/[Forunesia] Kimi no Kokoro wa Kagayaiteru Kai.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="aquors1">
+            <source src="assets/music/Aquors/[Forunesia] Step! ZERO to ONE.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="aquors2">
+            <source src="assets/music/Aquors/01. Aozora Jumping Heart.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="aquors3">
+            <source src="assets/music/Aquors/01. Genki Zenkai DAY! DAY! DAY!.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="aquors4">
+            <source src="assets/music/Aquors/01. Koi ni Naritai AQUARIUM.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="aquors5">
+            <source src="assets/music/Aquors/01. Strawberry Trapper.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="aquors6">
+            <source src="assets/music/Aquors/01. Torikoriko PLEASE!!.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="aquors7">
+            <source src="assets/music/Aquors/02. Guilty Night, Guilty Kiss!.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="aquors8">
+            <source src="assets/music/Aquors/02. Humming Friend.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="aquors9">
+            <source src="assets/music/Aquors/02. Mattete Ainouta.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="aquors10">
+            <source src="assets/music/Aquors/02. Tokimeki Bunruigaku.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="aquors11">
+            <source src="assets/music/Aquors/02. Yozora wa Nandemo Shitteru no？.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="aquors12">
+            <source src="assets/music/Aquors/03. Todokanai Hoshida to Shite mo.mp3" type="audio/mpeg">
+        </audio>
+                    
         <script type="text/javascript" src="assets/javascript/game.js"></script>
     </body>
 </html>

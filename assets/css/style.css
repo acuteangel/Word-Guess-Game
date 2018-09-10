@@ -1,0 +1,126 @@
+#toggler {
+    cursor: url(../images/Ragnarok6354_-_General_Cursor_Contest_Entry.png), auto;
+}
+
+header {
+    border-bottom: 2px solid;
+    border-color: rgb(140, 217, 255);
+    text-align: center;
+    grid-area: header;
+}
+
+hr {
+    margin: 5px;
+    border-top: 2px solid  rgb(140, 217, 255);
+}
+
+.stylish, #mute, #soundup, #sounddown, .sound {
+    margin: 0; 
+    background-color: #4CC4FF; 
+    font-size: 150%; 
+    font-family:"lucida console";
+    font-weight: bold;
+    text-align: center;
+    text-shadow:1px 1px 1px #000;
+    color:#ffffff;
+    padding:0.2em 0.4em;
+}
+
+
+#mute:hover, #soundup:hover, #sounddown:hover {
+    text-shadow: 0 0 20px #83d2f9;
+}
+#mute:active, #soundup:active, #sounddown:active {
+    transform: scaleY(.95);
+}
+
+#mute {
+    grid-area: playpause;
+    padding: 0px;
+}
+
+#soundup {
+    grid-area: plus;
+}
+
+#sounddown {
+    grid-area: minus;
+}
+
+.sound {
+    grid-area: sound;
+}
+
+.volume-controls {
+    grid-area: volume;
+    display: grid;
+    grid-template-areas: 'sound playpause minus plus';
+    grid-template-columns: 6fr 2fr 1fr 1fr;
+    grid-gap: 1px;
+}
+
+#switch-edition {
+    color: #3a3a3a;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-areas: 
+    'header header'
+    'left right'
+    'volume volume';
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr 4fr;
+    grid-gap: 1px;
+    background-color: rgba(255, 255, 255, 80%);
+    border: 2px solid #a8daff;
+    box-shadow: 0 0 20px #83d2f9;
+    width: 900px;
+    margin: auto;
+    height: 97vh;
+}
+
+.left-container {
+    grid-area: left;
+    border: 2px solid rgb(140, 217, 255);
+}
+
+.right-container {
+    grid-area: right;
+    border: 2px solid rgb(140, 217, 255);
+}
+
+.mus {
+    background-image: url(../images/Main_bg3.png);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.aquors {
+    background-image: url(../images/Main_bg5.png);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+@media screen and (max-width: 980px) {
+    .wrapper {
+        width: 768px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .wrapper {
+        width: 640px;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas: 'header''left''right''volume';
+    }
+}
+@media screen and (max-width: 640px) {
+    .wrapper {
+        width: 500px;
+    }
+}
