@@ -1,4 +1,4 @@
-#toggler {
+#body {
     cursor: url(../images/Ragnarok6354_-_General_Cursor_Contest_Entry.png), auto;
 }
 
@@ -7,6 +7,18 @@ header {
     border-color: rgb(140, 217, 255);
     text-align: center;
     grid-area: header;
+}
+
+@font-face{
+    font-family: "Lido STF CE";
+    src: url(../font/LISTFCEB_.TTF) format('truetype');
+}
+
+#title {
+    font-family: "Lido STF CE";
+    color: #ff3399;
+    font-style: italic bold;
+    font-size: 3em;
 }
 
 hr {
@@ -59,7 +71,7 @@ hr {
     grid-gap: 1px;
 }
 
-#switch-edition {
+#switch-edition, #display-edition, .wins, .losses, #current-solution, #guesses-remaining, #letters-guessed, #current-display, #letters-display{
     color: #3a3a3a;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }

@@ -14,7 +14,35 @@
                 "Paradise Live",
                 "Fuyu ga Kureta Yokan",
                 "Love marginal",
-                "Sore wa Bokutachi no Kiseki"
+                "Sore wa Bokutachi no Kiseki",
+                "Datte Datte Aa Mujou",
+                "sweet&sweet holiday",
+                "Trouble Busters",
+                "Bokura wa Ima no Naka de",
+                "Diamond Princess no Yuutsu",
+                "Donna Toki mo Zutto",
+                "COLORFUL VOICE",
+                "Love Novel",
+                "No brand girls",
+                "Shiranai Love＊Oshiete Love",
+                "START:DASH!!",
+                "Yume no Tobira",
+                "A.no.ne.ga.nbare!",
+                "SENTIMENTAL StepS",
+                "Wonderful Rush",
+                "Love wing bell",
+                "Natsuiro egao de 1,2, Jump!",
+                "Dancing stars on me!",
+                "Mermaid festa vol.1",
+                "Pure girls project",
+                "Cutie Panther",
+                "KiRa-KiRa Sensation!",
+                "Mogyutto `LOVE` de Sekkin Chuu!",
+                "Aishiteru Banzai!",
+                "Binetsu Kara Mystery",
+                "Happy maker!",
+                "Shangri-La Shower",
+                "Ruteshi Kisuki Shiteru"
                 ];
             // array with all available aquors song titles
             var aquorsWordBank = ["Kimi no Kokoro wa Kagayaiteru Kai",
@@ -34,12 +62,12 @@
             var wordBank = musWordBank;
             var version = "mus";
             //arrays for letters, uppercase letters, and numbers/symbols to be compared to
-            var numerals = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "!", "？"];
+            var numerals = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "!", "？", "＊", "`", "&", ":", ",", "-"];
             var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
             var alphabetUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
             //variable which will contain the id of the corresponding audio tag
             var currentSong = "";
-            var currentVolume = 0.2;
+            var currentVolume = 0.20;
             //variables which reset at the end of each round
             var wins = 0;
             var losses = 0;
@@ -60,8 +88,8 @@
                 guessedLetters = [];
                 guessedLettersUpper = [];
                 solution = "";
-                $("#current-solution").text("");
-                $("#current-display").text("Press Space to begin");
+                $("#current-solution").text("Press Space to begin");
+                $("#current-display").text("");
                 $("#guesses-remaining").text("Guesses remaining: 5");
                 $("#letters-guessed").text("");
                 $("#toggler").toggleClass("aquors");
@@ -102,22 +130,28 @@
 
             //volume up
             $("#soundup").on("click", function() {
-                if (currentVolume < 1) {
-                    currentVolume = currentVolume + 0.05;
+                if (currentVolume < 0.950 && currentSong !== "") {
+                    currentVolume = currentVolume + 0.050;
                     $(currentSong).get(0).volume = currentVolume;
+                    console.log(currentVolume);
                 }
             })
             //volume down
             $("#sounddown").on("click", function() {
-                if (currentVolume > 0) {
-                    currentVolume = currentVolume - 0.05;
+                if (currentVolume > 0.050 && currentSong !=="") {
+                    currentVolume = currentVolume - 0.050;
                     $(currentSong).get(0).volume = currentVolume;
+                    console.log(currentVolume);
                 }
             })
             
             //interprets any keypresses
             document.onkeypress = function(event) {
+                var keyPress = event.key;
                 //starts a new game if none is in progress with space
+                if (alphabetUpper.indexOf(event.key) > -1) {
+                    keyPress = alphabet[alphabetUpper.indexOf(event.key)]
+                };
                 if (gameOver && event.key === " ") {
                     if (currentSong==="") {
                         currentSong = "#mus8";
@@ -135,7 +169,7 @@
                     $("#letters-guessed").text(""); 
                 //if game in progress, evaluates entry
                 } else if (gameOver === false){
-                    updateGuessedLetters(event.key);
+                    updateGuessedLetters(keyPress);
                     $("#current-solution").text(wordDisplayUpdate());
                     gameEnder();
                 }
@@ -156,7 +190,7 @@
                 var displayString = "";
                 for (i=0; i<arr.length; i++) {
                     if (arr.charAt(i) == " "){
-                        displayString = displayString + " - ";
+                        displayString = displayString + "\xa0\xa0";
                     }else if (numerals.indexOf(arr.charAt(i)) > -1){   
                         displayString = displayString + arr.charAt(i);
                     } else {
@@ -182,7 +216,7 @@
                 var displayString = "";
                 for (i=0; i<solution.length; i++) {
                     if (solution.charAt(i) == " "){
-                        displayString = displayString + " - ";
+                        displayString = displayString + "\xa0\xa0";
                     }else if (numerals.indexOf(solution.charAt(i)) > -1){   
                         displayString = displayString + solution.charAt(i);                     
                     } else if (guessedLetters.indexOf(solution.charAt(i)) > -1 || guessedLettersUpper.indexOf(solution.charAt(i)) > -1) {
