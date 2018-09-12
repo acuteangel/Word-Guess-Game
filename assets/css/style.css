@@ -1,79 +1,23 @@
-#body {
+body {
     cursor: url(../images/Ragnarok6354_-_General_Cursor_Contest_Entry.png), auto;
+    margin: 8px;
+    line-height: normal;
 }
 
-header {
-    border-bottom: 2px solid;
-    border-color: rgb(140, 217, 255);
-    text-align: center;
-    grid-area: header;
+.mus {
+    background-image: url(../images/Main_bg3.png);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
-@font-face{
-    font-family: "Lido STF CE";
-    src: url(../font/LISTFCEB_.TTF) format('truetype');
-}
-
-#title {
-    font-family: "Lido STF CE";
-    color: #ff3399;
-    font-style: italic bold;
-    font-size: 3em;
-}
-
-hr {
-    margin: 5px;
-    border-top: 2px solid  rgb(140, 217, 255);
-}
-
-.stylish, #mute, #soundup, #sounddown, .sound {
-    margin: 0; 
-    background-color: #4CC4FF; 
-    font-size: 150%; 
-    font-family:"lucida console";
-    font-weight: bold;
-    text-align: center;
-    text-shadow:1px 1px 1px #000;
-    color:#ffffff;
-    padding:0.2em 0.4em;
-}
-
-
-#mute:hover, #soundup:hover, #sounddown:hover {
-    text-shadow: 0 0 20px #83d2f9;
-}
-#mute:active, #soundup:active, #sounddown:active {
-    transform: scaleY(.95);
-}
-
-#mute {
-    grid-area: playpause;
-    padding: 0px;
-}
-
-#soundup {
-    grid-area: plus;
-}
-
-#sounddown {
-    grid-area: minus;
-}
-
-.sound {
-    grid-area: sound;
-}
-
-.volume-controls {
-    grid-area: volume;
-    display: grid;
-    grid-template-areas: 'sound playpause minus plus';
-    grid-template-columns: 6fr 2fr 1fr 1fr;
-    grid-gap: 1px;
-}
-
-#switch-edition, #display-edition, .wins, .losses, #current-solution, #guesses-remaining, #letters-guessed, #current-display, #letters-display{
-    color: #3a3a3a;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+.aquors {
+    background-image: url(../images/Main_bg5.png);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .wrapper {
@@ -93,9 +37,61 @@ hr {
     height: 97vh;
 }
 
+header {
+    border-bottom: 2px solid;
+    border-color: rgb(140, 217, 255);
+    text-align: center;
+    grid-area: header;
+}
+
+@font-face{
+    font-family: "Lido STF CE";
+    src: url(../font/LISTFCEB_.TTF) format('truetype');
+}
+
+#title {
+    font-family: "Lido STF CE";
+    color: #ff3399;
+    font-style: italic bold;
+    font-size: 3em;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+hr {
+    margin: 5px;
+    border-top: 2px solid  rgb(140, 217, 255);
+}
+
+#switch-edition, #display-edition, .wins, .losses, #current-solution, #guesses-remaining, #letters-guessed, #current-display, #letters-display{
+    display: block;
+    color: #3a3a3a;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 1.5em;
+    margin: .83em 0px;
+    font-weight: bold;
+}
+
 .left-container {
     grid-area: left;
     border: 2px solid rgb(140, 217, 255);
+}
+
+.wins, .losses, #current-solution, #guesses-remaining, #letters-display, #letters-guessed, #current-display {
+    font-size: 2em;
+    margin: .67em 0px;
+}
+
+.stylish, #mute, #soundup, #sounddown, .sound {
+    margin: 0; 
+    background-color: #4CC4FF; 
+    font-size: 150%; 
+    font-family:"lucida console";
+    font-weight: bold;
+    text-align: center;
+    text-shadow:1px 1px 1px #000;
+    color:#ffffff;
+    padding:0.2em 0.4em;
 }
 
 .right-container {
@@ -103,21 +99,38 @@ hr {
     border: 2px solid rgb(140, 217, 255);
 }
 
-.mus {
-    background-image: url(../images/Main_bg3.png);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+.volume-controls {
+    grid-area: volume;
+    display: grid;
+    grid-template-areas: 'sound playpause minus plus';
+    grid-template-columns: 6fr 2fr 1fr 1fr;
+    grid-gap: 1px;
 }
 
-.aquors {
-    background-image: url(../images/Main_bg5.png);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+.sound {
+    grid-area: sound;
 }
+
+#mute:hover, #soundup:hover, #sounddown:hover {
+    text-shadow: 0 0 20px #83d2f9;
+}
+#mute:active, #soundup:active, #sounddown:active {
+    transform: scaleY(.95);
+}
+
+#mute {
+    grid-area: playpause;
+    padding: 0px;
+}
+
+#sounddown {
+    grid-area: minus;
+}
+
+#soundup {
+    grid-area: plus;
+}
+
 @media screen and (max-width: 980px) {
     .wrapper {
         width: 768px;

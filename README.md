@@ -1,47 +1,10 @@
 # Word-Guess-Game
 
+This simple Love Live hangman game comes in 2 versions: Aquors and mu's. It includes music which by default won't play until the player starts a game, presses play, or switches versions. 
 
+How it works:
+Among other initialized variables, there are arrays for both word banks, which contain all the available song titles. When the game is started, a random number generator selects the index for the solution. A loop displays the solution using blanks in place of each letter. 
 
-array of words
-    initialized
+When a user types in a letter the event adds the word to the list of guessed letters, unless it's already been guessed. A different version of the loop runs which updates the solution, but any guessed letters are displayed instead of being blanks.
 
-rng one of the words
-    math.floor (math.random() * array.length)
-
-prompt user to guess a letter
-    assign letters of word to solutionArray
-    declare wordDisplayArray
-    loop (loops solution.length times. if letter then pushes "_" to the end of wordDisplayArray, if space then " ") then displays " " + wordDisplayArray[i] + " " + ...
-    return wordDisplay
-
-    if letter has been guessed
-        if statement that compares key press to entries in guessedLettersArray
-
-        have them guess a different letter
-        
-    if letter hasn't been guessed
-
-        if letter is correct
-            compares key press to letters of solution
-
-            fill in blanks
-                matches will reassign same index for wordDisplayArray
-            
-            add letter to list of guessed letters
-                push keypress to guessedLettersArray
-
-        if letter is incorrect
-            compares key press to letters of solution
-
-            guess counter lowers by 1
-
-            add letter to list of guessed letters
-
-if all letters guessed or guess counter 0, game ends
-    if no entries of wordDisplayArray are "_" or if guessesCounter = 0 game ends
-else, loop
-    when game ends:
-        if all letters guessed, display win
-        if out of guesses, display loss
-    add score to w-l counter
-    run game again    
+After each guess, a function checks to see if the game is over. If there are no more guesses, the game ends at a loss. If there are no more blanks, the game ends as a win. The song currently playing will be stopped and the solution will be played. 

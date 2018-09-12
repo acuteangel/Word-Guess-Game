@@ -65,7 +65,7 @@
             var numerals = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "!", "？", "＊", "`", "&", ":", ",", "-"];
             var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
             var alphabetUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-            //variable which will contain the id of the corresponding audio tag
+            //variable which will contain the id of the corresponding audio tag, and for the starting volume
             var currentSong = "";
             var currentVolume = 0.20;
             //variables which reset at the end of each round
@@ -133,7 +133,6 @@
                 if (currentVolume < 0.950 && currentSong !== "") {
                     currentVolume = currentVolume + 0.050;
                     $(currentSong).get(0).volume = currentVolume;
-                    console.log(currentVolume);
                 }
             })
             //volume down
@@ -141,7 +140,6 @@
                 if (currentVolume > 0.050 && currentSong !=="") {
                     currentVolume = currentVolume - 0.050;
                     $(currentSong).get(0).volume = currentVolume;
-                    console.log(currentVolume);
                 }
             })
             
@@ -185,7 +183,7 @@
                 return wordBank[solutionIndex];
             }
             
-            //
+            //takes the solution and turns it from a string of letters and numbers/symbols and replaces letters with "_". \xa0 = no-break space
             function wordDisplayInitial(arr) {
                 var displayString = "";
                 for (i=0; i<arr.length; i++) {
@@ -200,6 +198,7 @@
                 return displayString;
             }
             
+            //used to determine if input letter has been guessed yet. if not then it's added to the list of guessed letters
             function updateGuessedLetters(arr) {
                 if (guessedLetters.indexOf(arr) < 0 && alphabet.indexOf(arr) > -1) {
                 guessedLetters.push(arr); 
@@ -212,6 +211,7 @@
                 }
             }
 
+            //similar to wordDisplayInitial, but doesn't replace letters in guessedLetters array
             function wordDisplayUpdate() {
                 var displayString = "";
                 for (i=0; i<solution.length; i++) {
@@ -229,6 +229,7 @@
 
             }
 
+            //runs after each letter is guessed. ends game if no more guesses or if all "_"s are replaced. if game ends, displays text and plays the song. prompts for new game
             function gameEnder() {
                 if (guesses===0){
                     gameOver = true;
