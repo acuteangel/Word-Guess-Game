@@ -96,8 +96,7 @@
                 $("#toggler").toggleClass("mus");
                 //starts music if none is playing yet
                 if (currentSong==="") {
-                    currentSong = "#mus8";
-                    $(currentSong).html('<source src="assets/music/mus/Takaramonozu.mp3" type="audio/mpeg">'); //lazy loads the song
+                    currentSong = "#mus8";                    
                     $(currentSong).get(0).play();
                     $(currentSong).get(0).volume = currentVolume;
                 }
@@ -118,8 +117,7 @@
             //plays/pauses music
             $("#mute").on("click", function() {
                 if (currentSong==="") {
-                    currentSong = "#mus8";
-                    $(currentSong).html('<source src="assets/music/mus/Takaramonozu.mp3" type="audio/mpeg">');
+                    currentSong = "#mus8";                    
                     $(currentSong).get(0).play();
                     $(currentSong).get(0).volume = currentVolume;
                 } else if ($(currentSong).get(0).paused){
@@ -155,7 +153,6 @@
                 if (gameOver && event.key === " ") {
                     if (currentSong==="") {
                         currentSong = "#mus8";
-                        $(currentSong).html('<source src="assets/music/mus/Takaramonozu.mp3" type="audio/mpeg">');
                         $(currentSong).get(0).play();
                         $(currentSong).get(0).volume = currentVolume;
                     }
