@@ -1,5 +1,7 @@
 # Word-Guess-Game
 
+https://acuteangel.github.io/Word-Guess-Game/
+
 This simple Love Live hangman game comes in 2 versions: Aquors and mu's. It includes music which by default won't play until the player starts a game, presses play, or switches versions. 
 
 How it works:

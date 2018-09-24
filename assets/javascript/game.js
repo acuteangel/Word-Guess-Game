@@ -97,6 +97,7 @@
                 //starts music if none is playing yet
                 if (currentSong==="") {
                     currentSong = "#mus8";
+                    $(currentSong).html('<source src="assets/music/mus/Takaramonozu.mp3" type="audio/mpeg"></source>'); //lazy loads the song
                     $(currentSong).get(0).play();
                     $(currentSong).get(0).volume = currentVolume;
                 }
@@ -118,6 +119,7 @@
             $("#mute").on("click", function() {
                 if (currentSong==="") {
                     currentSong = "#mus8";
+                    $(currentSong).html('<source src="assets/music/mus/Takaramonozu.mp3" type="audio/mpeg"></source>');
                     $(currentSong).get(0).play();
                     $(currentSong).get(0).volume = currentVolume;
                 } else if ($(currentSong).get(0).paused){
@@ -153,6 +155,7 @@
                 if (gameOver && event.key === " ") {
                     if (currentSong==="") {
                         currentSong = "#mus8";
+                        $(currentSong).html('<source src="assets/music/mus/Takaramonozu.mp3" type="audio/mpeg"></source>');
                         $(currentSong).get(0).play();
                         $(currentSong).get(0).volume = currentVolume;
                     }
@@ -244,6 +247,7 @@
                         $(currentSong).get(0).currentTime = 0;
                         }
                     currentSong = "#" + version + wordBank.indexOf(solution);
+                    $(currentSong).html('<source src="assets/music/'+version+'/'+solution+'.mp3" type="audio/mpeg"></source>');
                     $(currentSong).get(0).play();
                     $(currentSong).get(0).volume = currentVolume;
                     previousSolutionIndex = solutionIndex;
