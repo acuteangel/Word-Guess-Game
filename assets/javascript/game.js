@@ -25,7 +25,7 @@
                 "Love Novel",
                 "No brand girls",
                 "Shiranai Love＊Oshiete Love",
-                "START:DASH!!",
+                "START：DASH!!",
                 "Yume no Tobira",
                 "A.no.ne.ga.nbare!",
                 "SENTIMENTAL StepS",
@@ -62,7 +62,7 @@
             var wordBank = musWordBank;
             var version = "mus";
             //arrays for letters, uppercase letters, and numbers/symbols to be compared to
-            var numerals = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "!", "？", "＊", "`", "&", ":", ",", "-"];
+            var numerals = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "!", "？", "＊", "`", "&", "：", ",", "-"];
             var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
             var alphabetUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
             //variable which will contain the id of the corresponding audio tag, and for the starting volume
@@ -92,7 +92,7 @@
                 $("#current-display").text("");
                 $("#guesses-remaining").text("Guesses remaining: 5");
                 $("#letters-guessed").text("");
-                $("#toggler").toggleClass("aquors");
+                $("#toggler").toggleClass("Aquors");
                 $("#toggler").toggleClass("mus");
                 //starts music if none is playing yet
                 if (currentSong==="") {
@@ -102,7 +102,7 @@
                 }
 
                 if (version == "mus") {
-                    version = "aquors";
+                    version = "Aquors";
                     $("#display-edition").text("Aquor's edition!");
                     wordBank = aquorsWordBank;
                     $("#switch-edition").text("Click here to play μ's edition!");
